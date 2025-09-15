@@ -39,7 +39,7 @@ umap_df_all["Exon_1"] = y_all["Exon_1"]
 umap_df_all["Exon_2"] = y_all["Exon_2"]
 umap_df_all["gene"] = y_all["gene"]
 
-umap_df_all.to_csv('')
+umap_df_all.to_csv('Finalrnarh_exon1_exon2_annotations_rnarh_interpretableN128L11_f1_b256_final_rep.csv') # This file is present in the associated release.
 
 # For generating the UMAP for instance, using Fragment annotations for the color of data points. 
 plt.figure(figsize=(40, 20))
