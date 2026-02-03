@@ -1,7 +1,7 @@
 import scipy.stats as stats
 
 def calculate_enrichment(overlap_bp, total_peak_bp, pam_cluster_bp, total_genome_bp):
-    # Contingency Table: # Data is in Supplementary Table S3
+    # Creating Contingency Table from Data is in Supplementary Table S3
     table = [
         [overlap_bp, total_peak_bp - overlap_bp],
         [pam_cluster_bp - overlap_bp, total_genome_bp - total_peak_bp - pam_cluster_bp + overlap_bp]
