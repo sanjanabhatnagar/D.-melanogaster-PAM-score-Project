@@ -2,6 +2,8 @@
 
 The script **`ExtractingcassettePSI_FromModENCODE.py`** extracts PSI values for cassette exons adjacent to introns listed in the PAM file, across modENCODE Drosophila tissues and developmental stages
 
+The script **`Processing_modEncodeExpressiondata.py`** extracts expression data for candidate RBP across modENCODE Drosophila tissues and developmental stages.
+
 Next, **`AddingSplicingdata_toPAMS.py`** script yields an output file with 
 1. the PSI values for cassette exons adjacent to introns within a conserved RBP motif cluster identified in PAM score analysis.
 2. Position of the intron relative to the candidate cassette exon - Upstream or Downstream of event.
@@ -17,3 +19,4 @@ Next, **`AddingSplicingdata_toPAMS.py`** script yields an output file with
  1851497:1851661 | FBgn0035282 | CNMa)	
 ......
 ```
+
