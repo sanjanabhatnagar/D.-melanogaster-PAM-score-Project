@@ -51,5 +51,5 @@ Next, **`AddingSplicingdata_toPAMS.py`** script yields an output file with
 
 ## Running Generalised Additive Mixed Model on PAM cassette events 
 
-
+The **`GAMM.R`** script - models PSI using a generalized additive mixed model without a global intercept, incorporating separate nonlinear smooth effects of upstream and downstream intronic RBP signal and an event-specific random intercept to account for baseline splicing differences across events.
 
