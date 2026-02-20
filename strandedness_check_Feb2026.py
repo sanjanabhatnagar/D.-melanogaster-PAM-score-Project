@@ -186,11 +186,11 @@ def strand_check_(aln):
             if len(seq_) >= 16: # That's what I am specifying because the sequence should be larger than the splice site PWM lengths!!!
                 # Here I am getting log-odds score for 5'ss and 3'ss in sequence
                 motif5ss_seq_score= scan(pwm_5, seq_[:7], -20,'5ss') # G T R A G T Drosophila (all introns) 5' splice site sequences Table 2A, Mount et al. 1992
-                motif3ss_seq_score = scan(pwm_3, seq_[-16:], -20,'3ss') #  Y T T _ C A G Drosophila (all introns) 3' splice site sequences Table 2B, Mount et al. 1992
+                motif3ss_seq_score = scan(pwm_3, seq_[-10:], -20,'3ss') #  Y T T _ C A G Drosophila (all introns) 3' splice site sequences Table 2B, Mount et al. 1992
 
                 # Here I am getting log-odds score for 5'ss and 3'ss in reverse_complement of the sequence
                 motif5ss_seqrc_score = scan(pwm_5, seq_rc[:7], -20,'5ss') # G T R A G T Drosophila (all introns) 5' splice site sequences Table 2A, Mount et al. 1992
-                motif3ss_seqrc_score = scan(pwm_3, seq_rc[-16:], -20,'3ss') #  Y T T _ C A G Drosophila (all introns) 3' splice site sequences Table 2B, Mount et al. 1992
+                motif3ss_seqrc_score = scan(pwm_3, seq_rc[-10:], -20,'3ss') #  Y T T _ C A G Drosophila (all introns) 3' splice site sequences Table 2B, Mount et al. 1992
 
             else:
                 motif5ss_seq_score = 0
