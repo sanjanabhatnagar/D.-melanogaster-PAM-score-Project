@@ -1,7 +1,7 @@
 # D.-melanogaster-PAM-score-Project
 
 
-## Running checks on MAFFT aligned files (--adjustdirection parameter) to ensure all homologs are on same strand
+## Running checks on MAFFT aligned files (--adjustdirectionaccurately parameter) to ensure all homologs are on same strand
 
 The script **`strandedness_check_Feb2026.py`** computes the probabilities of 5'ss and 3'ss motifs being on sense strand vs. antisense strand for each homolog within a homolog set.
 
