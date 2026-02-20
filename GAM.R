@@ -21,13 +21,24 @@ data$Meta_Corrected <- factor(data$Meta_Corrected)
 # (〖motif〗_(Downstream IR):RBP_expression )_ij - FIXED EFFECT
 # u_j+ ε_ij - RANDOM EFFECT
 
+
+# Here -1 means there is no shared baseline PSI effect between events
+# Here smooth functions were fitted separately for upstream and downstream intronic motif positions to capture nonlinear positional effects on splicing.
+# Explicitly defined the link function as logit to keep PSI bound between 0 and 1, inspired from Zhao et al. 2013 (also, reflects true nature of PSI better
+# The default link function is identity in gam! 
+
+# In mgcv, random effects are implemented as penalized smooths. Hence, s(Meta_Corrected, bs = "re"), if I jus write Meta_Correctedf, it would be treated as a linear term 
+# Check ?smooth.terms documentation in R 
+
 fit_gamm_bypos <- gam(
   PSI ~ -1 + 
-    s(RBP_centered, by = Upstream, k = 10) +
-    s(RBP_centered, by = Downstream, k = 10) +
+    s(RBP_centered, by = Upstream) +
+    s(RBP_centered, by = Downstream) +
     s(Meta_Corrected, bs = "re"),
+  family = quasibinomial(link = "logit"),
   data = data,
   method = "REML"
 )
+
 plot(fit_gamm_bypos, pages = 1, shade = TRUE)
 summary(fit_gamm_bypos)
