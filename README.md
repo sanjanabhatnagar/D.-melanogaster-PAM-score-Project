@@ -11,9 +11,14 @@ gh repo clone agduncan94/phylogenetic_augmentation_paper
 We began by preparing D. melanogaster intronic sequences homolog sets from the other drosophilid species using custom scripts runLiftOverOnBed_gnu_parallel.sh which uses HAL liftover to fetch homologous sequences. We had also installed all the drosophilid whole genome fastas and drosophila_298.hal (Whole genome alignments). 
 
  ```
-# Positive strand
+
+# bed file of intronic sequences of <100 bp length were prepared
+# Strand-specific BED files processed separately to maintain directional integrity - Dmel6_60_intron_pv.bed and Dmel6_60_intron_nv.bed
+# drosophila_species2.txt - contains names of species from the drosophilid family (homologous sequences are pulled from these species only)
+
+# Running liftover for intronic sequences of genes on the positive strand
 nohup bash /valr/sanjana/runLiftOverOnBed_gnu_parallel.sh /valr/sanjana/droso_pams_25/bed_files/Dmel6_60_intron_pv.bed D_MELANOGASTER ./droso_pams_25/drosophila_species2.txt dmel60_intronpv_ ./droso_pams_25/drosoInpv/ &
-# Negative strand
+# Running liftover for intronic sequences of genes on the negative strand
 nohup bash /valr/sanjana/runLiftOverOnBed_gnu_parallel.sh /valr/sanjana/droso_pams_25/bed_files/Dmel6_60_intron_pv.bed D_MELANOGASTER ./droso_pams_25/drosophila_species2.txt dmel60_intronpv_ ./droso_pams_25/drosoInpv/ &
  ```
 
