@@ -59,6 +59,15 @@ The output files are -
 ......
 ```
 
+## Re-running MAFFT on filtered sequence (with more than 70% of the sequences on the correct strand)
+
+The files which did not pass the 0.7 threshold are removed after this step and the remaining files are realigned for downstream analysis.
+Re-run MAFFT (but without adjusting directions this time) on the correct strandedness homolog sets obtained from the previous step to get accurately aligned homologs.
+
+ ```
+nohup bash run_multi_mafft_pams_strndcheck.sh drosophila_chromosome_file.txt 7 ./droso_introns_10exon_Feb2026/ > mafft_strndcheck.aln &
+ ```
+
 ## Adding ModEncode Analysis to PAM data
 
 The script **`ExtractingcassettePSI_FromModENCODE.py`** extracts PSI values for cassette exons adjacent to introns listed in the PAM file, across modENCODE Drosophila tissues and developmental stages
