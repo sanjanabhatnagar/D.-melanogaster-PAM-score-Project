@@ -7,6 +7,7 @@ gh repo clone pfenninglab/halLiftover-postprocessing
 gh repo clone agduncan94/phylogenetic_augmentation_paper
  ```
 
+## Building D. melanogaster intronic sequences homolog sets by performing HAL liftover
 
 We began by preparing D. melanogaster intronic sequences homolog sets from the other drosophilid species using custom scripts runLiftOverOnBed_gnu_parallel.sh which uses HAL liftover to fetch homologous sequences. We had also installed all the drosophilid whole genome fastas and drosophila_298.hal (Whole genome alignments). 
 
