@@ -1,5 +1,21 @@
 # D.-melanogaster-PAM-score-Project
 
+Prior to the analysis, we installed hal and ensured other conditions were met. Following repositories played a crucial role in our study.
+ ```
+gh repo clone ComparativeGenomicsToolkit/hal
+gh repo clone pfenninglab/halLiftover-postprocessing
+gh repo clone agduncan94/phylogenetic_augmentation_paper
+ ```
+
+
+We began by preparing D. melanogaster intronic sequences homolog sets from the other drosophilid species using custom scripts runLiftOverOnBed_gnu_parallel.sh which uses HAL liftover to fetch homologous sequences. We had also installed all the drosophilid whole genome fastas. 
+
+ ```
+# Positive strand
+nohup bash /valr/sanjana/runLiftOverOnBed_gnu_parallel.sh /valr/sanjana/droso_pams_25/bed_files/Dmel6_60_intron_pv.bed D_MELANOGASTER ./droso_pams_25/drosophila_species2.txt dmel60_intronpv_ ./droso_pams_25/drosoInpv/ &
+# Negative strand
+nohup bash /valr/sanjana/runLiftOverOnBed_gnu_parallel.sh /valr/sanjana/droso_pams_25/bed_files/Dmel6_60_intron_pv.bed D_MELANOGASTER ./droso_pams_25/drosophila_species2.txt dmel60_intronpv_ ./droso_pams_25/drosoInpv/ &
+ ```
 
 ## Running checks on MAFFT aligned files (--adjustdirectionaccurately parameter) to ensure all homologs are on same strand
 
