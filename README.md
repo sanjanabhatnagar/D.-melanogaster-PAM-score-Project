@@ -63,7 +63,14 @@ The output files are -
 
 The files which did not pass the 0.7 threshold are removed after this step and the remaining files are realigned for downstream analysis.
 Re-run MAFFT (but without adjusting directions this time) on the correct strandedness homolog sets obtained from the previous step to get accurately aligned homologs.
-
+Folders with correct homolog sets are as follows and this same list is stored in drosophila_chromosome_file.txt now - 
+2L_aln_strncheck
+2R_aln_strncheck
+3L_aln_strncheck
+3R_aln_strncheck
+X_aln_strnscheck
+Y_aln_strncheck
+4_aln_strncheck
  ```
 nohup bash run_multi_mafft_pams_strndcheck.sh drosophila_chromosome_file.txt 7 ./droso_introns_10exon_Feb2026/ > mafft_strndcheck.aln &
  ```
