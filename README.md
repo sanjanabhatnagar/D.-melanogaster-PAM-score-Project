@@ -7,7 +7,7 @@ gh repo clone pfenninglab/halLiftover-postprocessing
 gh repo clone agduncan94/phylogenetic_augmentation_paper
  ```
 
-## Building D. melanogaster intronic sequences homolog sets by performing HAL liftover
+## 1. Building D. melanogaster intronic sequences homolog sets by performing HAL liftover
 
 We began by preparing D. melanogaster intronic sequences homolog sets from the other drosophilid species using custom scripts runLiftOverOnBed_gnu_parallel.sh which uses HAL liftover to fetch homologous sequences. We had also installed all the drosophilid whole genome fastas and drosophila_298.hal (Whole genome alignments). 
 
@@ -20,8 +20,18 @@ We began by preparing D. melanogaster intronic sequences homolog sets from the o
 # Running liftover for intronic sequences of genes on the positive strand
 nohup bash /valr/sanjana/runLiftOverOnBed_gnu_parallel.sh /valr/sanjana/droso_pams_25/bed_files/Dmel6_60_intron_pv.bed D_MELANOGASTER ./droso_pams_25/drosophila_species2.txt dmel60_intronpv_ ./droso_pams_25/drosoInpv/ &
 # Running liftover for intronic sequences of genes on the negative strand
-nohup bash /valr/sanjana/runLiftOverOnBed_gnu_parallel.sh /valr/sanjana/droso_pams_25/bed_files/Dmel6_60_intron_pv.bed D_MELANOGASTER ./droso_pams_25/drosophila_species2.txt dmel60_intronpv_ ./droso_pams_25/drosoInpv/ &
+nohup bash /valr/sanjana/runLiftOverOnBed_gnu_parallel.sh /valr/sanjana/droso_pams_25/bed_files/Dmel6_60_intron_nv.bed D_MELANOGASTER ./droso_pams_25/drosophila_species2.txt dmel60_intronnv_ ./droso_pams_25/drosoInnv/ &
  ```
+This results in FASTA files segregated by species, each containing homologous sequences corresponding to the specified coordinates.
+
+## 1.2. Multi-Species Homologous Sequence Grouping within the same fasta file 
+
+The fasta files are accessed from drosoInpv/orthologs/per_species_fa/ and RevComp.fa files from drosoInnv/orthologs/per_species_fa to the same folder to be processed further. 
+
+ ```
+nohup python convertFastaPerSpeciesToFastaPerSequence.py ./dm6_introns_bothStrands/ drosophila_chromosome_file.txt  &
+ ```
+
 
 ## Running checks on MAFFT aligned files (--adjustdirectionaccurately parameter) to ensure all homologs are on same strand
 
