@@ -26,7 +26,7 @@ This results in FASTA files segregated by species, each containing homologous se
 
 ## 1.2. Multi-Species Homologous Sequence Grouping within the same fasta file 
 
-The fasta files are accessed from drosoInpv/orthologs/per_species_fa/ and RevComp.fa files from drosoInnv/orthologs/per_species_fa to the same folder to be processed further. 
+The fasta files are accessed from drosoInpv/orthologs/per_species_fa/ and reverser complemented files (**`revcomp_pams.sh`**  which calls **`reverse_complement_pams.py`** ) from drosoInnv/orthologs/per_species_fa to the same folder to be processed further. 
 
  ```
 nohup python convertFastaPerSpeciesToFastaPerSequence.py ./dm6_introns_bothStrands/ drosophila_chromosome_file.txt  &
